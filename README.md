@@ -9,8 +9,9 @@ A backend project designed to handle image and video uploads with support for bo
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Project Structure](#project-structure)
 - [Testing](#testing)
+- [Project Structure](#project-structure)
+
 
 ## Overview
 
@@ -78,6 +79,9 @@ This project provides a robust backend solution for uploading images and videos.
 - **Upload Media**: Use Postman to send POST requests to the API endpoints for uploading images and videos.
 - **Email Notifications**: Upon successful upload, the user receives an email notification.
 - **View Uploaded Media**: Access the uploaded files via the Cloudinary link or the local file path stored in MongoDB Atlas.
+  
+## Testing
+Postman: Use Postman to test the API endpoints by sending different requests for uploading media files.
 
 ## Project Structure
 
@@ -103,5 +107,12 @@ BackendProject/
 ├── package.json             # Project metadata and dependencies
 └── README.md                # Project documentation
 
-## Testing
-Postman: Use Postman to test the API endpoints by sending different requests for uploading media files.
+
+
+
+
+
+
+
+
+
