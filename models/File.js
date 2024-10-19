@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
 
+
+
 const fileSchema = new mongoose.Schema({
     name:{
         type:String,
@@ -18,11 +20,11 @@ const fileSchema = new mongoose.Schema({
 });
 
 
+
 //post middleware
 fileSchema.post("save", async function(doc) {
     try{
         console.log("DOC",doc)
-
         //transporter 
         let transporter = nodemailer.createTransport({
             host: process.env.MAIL_HOST,
@@ -31,24 +33,18 @@ fileSchema.post("save", async function(doc) {
                 pass: process.env.MAIL_PASS,
             },
         });
-
         //send mail 
         let info = await transporter.sendMail({
             from:`StudyNotion - by Neha`,
             to: doc.email,
             subject: "New File Uploaded on Cloudinary",
             html:`<h2>Hello User!</h2> <p>File Uploaded View here: <a href="${doc.imageUrl}">${doc.imageUrl}</a> </p>`,
-        })
-        
+        }) 
         console.log("INFO", info);
-
-
     }
     catch(error) {
         console.error(error);
     }
 })
-
-
 const File = mongoose.model("File", fileSchema);
 module.exports = File;
